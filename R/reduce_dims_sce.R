@@ -93,6 +93,7 @@ reduce_dims_sce <- function(sce,
   cli::cli_h1("Starting Dimensionality Reduction")
 
   # Generate res mod formula for preprocess
+  res_mod_formula_str <- NULL
   if (!is.null(vars_to_regress_out)) {
     res_mod_formula_str <- paste0(
       "~", paste0(vars_to_regress_out, collapse = "+")
@@ -106,16 +107,16 @@ reduce_dims_sce <- function(sce,
   cli::cli_h2("Computing Principal Component Analysis (PCA)")
   if (!is.null(vars_to_regress_out)) {
     message(sprintf("Regressing out: %s", res_mod_formula_str))
-    cds <- monocle3::preprocess_cds(
-      cds,
-      num_dim = pca_dims
-    )
-    cds <- monocle3::align_cds(
-      cds,
-      residual_model_formula_str = res_mod_formula_str
-    )
   }
 
+  cds <- monocle3::preprocess_cds(
+    cds,
+    num_dim = pca_dims
+  )
+  cds <- monocle3::align_cds(
+    cds,
+    residual_model_formula_str = res_mod_formula_str
+  )
 
   # mat <- SingleCellExperiment::counts(sce)
   #
