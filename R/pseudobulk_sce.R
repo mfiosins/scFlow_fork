@@ -114,8 +114,7 @@ pseudobulk_sce <- function(sce,
   # append the rest of the sample information
   pb_cd <- dplyr::left_join(
     pb_cd, sce_cd,
-    by = sample_var,
-    all.x = TRUE, all.y = FALSE)
+    by = sample_var)
 
   # ensure the order of the coldata matches the matrix
   pb_cd <- pb_cd[match(colnames(pb_matrix), pb_cd$pseudobulk_id),]
