@@ -57,8 +57,7 @@ annotate_sce_genes <- function(sce,
   SummarizedExperiment::rowData(sce) <- dplyr::full_join(
     data.frame(SummarizedExperiment::rowData(sce)),
     mapping_results,
-    by = "ensembl_gene_id",
-    all = TRUE
+    by = "ensembl_gene_id"
     ) %>% dplyr::rename(gene = external_gene_name)
 
   if (!all(
