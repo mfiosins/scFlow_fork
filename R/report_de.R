@@ -79,7 +79,6 @@ report_de <- function(res,
     ),
     output_dir = report_folder_path,
     output_file = report_file,
-    knit_root_dir = krd,
     intermediates_dir = intd,
     quiet = TRUE
   )
