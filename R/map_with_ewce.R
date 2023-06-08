@@ -291,7 +291,7 @@ map_celltypes_sce <- function(sce,
       } else {
         print("Debugging map_celltypes")
         for(i in 1:length(ctd)){
-            ctd[[i]]$annot <- ctd[[i]]$`ctd names`
+            names(ctd[[i]])(1) <- "annot"
         }
         print("ctd names")
         print(names(ctd[[1]]))
