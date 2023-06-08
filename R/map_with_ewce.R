@@ -289,6 +289,11 @@ map_celltypes_sce <- function(sce,
           z = NA
         )
       } else {
+        print("Debugging map_celltypes")
+        print("ctd")
+        print(ctd)
+        print("ctd names")
+        print(names(ctd[[1]]))
         full_results <- suppressMessages(EWCE::bootstrap_enrichment_test(
           sct_data = ctd,
           hits = mostSpecificGenes,
