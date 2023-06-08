@@ -290,6 +290,8 @@ map_celltypes_sce <- function(sce,
         )
       } else {
         print("Debugging map_celltypes")
+        print("ctd old names")
+        print(names(ctd[[1]]))
         for(i in 1:length(ctd)){
             names(ctd[[i]])[1] <- "annot"
         }
